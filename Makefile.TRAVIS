@@ -1,6 +1,9 @@
-all: build
+all: build test
 
 build:
 	go build -v ./...
 
-.PHONY: build
+test: build
+	go test -v ./...
+
+.PHONY: build test
