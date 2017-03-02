@@ -25,7 +25,7 @@ type Rand func(n int) int
 var defaultRand = rand.Intn
 
 // Shuffle permutates the data randomly according to the randomizer r.  If r is
-// nil, the function defaults to sort.Intn, which while convenient puts
+// nil, the function defaults to rand.Intn, which while convenient puts
 // concurrent callers of shuffle or package sort's default functions under the
 // same lock.
 func Shuffle(data Interface, r Rand) {
