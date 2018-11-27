@@ -1,4 +1,6 @@
 // Package fisheryates shuffles collections of data.
+//
+// This package is deprecated in favor of the newly-added shuffle capability.
 package fisheryates
 
 import (
@@ -8,6 +10,8 @@ import (
 
 // Interface models a type that can be shuffled by this package's functions.
 // Any type that fulfills sort.Interface may be used.
+//
+// Deprecated: Please use (*rand.Rand).Shuffle or rand.Shuffle.
 type Interface interface {
 	// Swap exchanges elements indexed by i and j.  See
 	// sort.Interface.Swap.
@@ -28,6 +32,8 @@ var defaultRand = rand.Intn
 // nil, the function defaults to rand.Intn, which while convenient puts
 // concurrent callers of shuffle or package sort's default functions under the
 // same lock.
+//
+// Deprecated: Please use (*rand.Rand).Shuffle or rand.Shuffle.
 func Shuffle(data Interface, r Rand) {
 	if r == nil {
 		r = defaultRand
