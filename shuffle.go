@@ -38,7 +38,8 @@ func Shuffle(data Interface, r Rand) {
 	if r == nil {
 		r = defaultRand
 	}
-	for i := 0; i < data.Len()-2; i++ {
-		data.Swap(i, r(data.Len()-i))
+	// random number r should be i <= r < n
+	for i := 0; i <= data.Len()-2; i++ {
+		data.Swap(i, i+r(data.Len()-i))
 	}
 }
